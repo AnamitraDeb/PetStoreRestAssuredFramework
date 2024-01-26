@@ -5,8 +5,6 @@ import static io.restassured.RestAssured.given;
 import java.io.File;
 import java.util.List;
 
-import io.restassured.filter.log.LogDetail;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import petstore.payloadpojos.Pet;
 import petstore.specifications.Specification;
