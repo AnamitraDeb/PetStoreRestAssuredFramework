@@ -92,10 +92,7 @@ public class PetModuleAPIs {
 	public static Response updatePetWithFormdata(Integer petID, String updatedName, String updatedStatus)
 	{
 		Response response = given().
-				                    accept(ContentType.JSON).
-				                    baseUri(Routes.BASE_URL).
-				                    basePath(Routes.BASE_PATH).
-				                    contentType(ContentType.URLENC).
+				                    spec(Specification.getRequestSpecForUrlEncoded()).
 				                    pathParam("petID", petID).
                                     formParams("name", updatedName).
                                     formParam("status", updatedStatus).
@@ -113,10 +110,7 @@ public class PetModuleAPIs {
 	public static Response uploadPicture(String imagePath, Integer petID)
 	{
 		Response response = given().
-				                    accept(ContentType.JSON).
-				                    baseUri(Routes.BASE_URL).
-				                    basePath(Routes.BASE_PATH).
-				                    contentType(ContentType.MULTIPART).
+				                    spec(Specification.getRequestSpecForMultipart()).
 				                    pathParam("petID", petID).
 				                    multiPart("file", new File(imagePath)).
 				                    log().all().
