@@ -22,6 +22,31 @@ public class Specification {
 		return requestSpecification;
 	}
 	
+	public static RequestSpecification getRequestSpecForUrlEncoded()
+	{
+		RequestSpecification requestSpecification = new RequestSpecBuilder().
+				        setAccept(ContentType.JSON).
+				        setBaseUri(Routes.BASE_URL).
+				        setBasePath(Routes.BASE_PATH).
+				        setContentType(ContentType.URLENC).
+				        log(LogDetail.ALL).
+				        build();
+		return requestSpecification;
+	}
+	
+	public static RequestSpecification getRequestSpecForMultipart()
+	{
+		RequestSpecification requestSpecification = new RequestSpecBuilder().
+				        setAccept(ContentType.JSON).
+				        setBaseUri(Routes.BASE_URL).
+				        setBasePath(Routes.BASE_PATH).
+				        setContentType(ContentType.MULTIPART).
+				        log(LogDetail.ALL).
+				        build();
+		return requestSpecification;
+	}
+	
+	
 	public static ResponseSpecification getResponseSpec()
 	{
 		ResponseSpecification responseSpecification = new ResponseSpecBuilder().
